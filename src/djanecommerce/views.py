@@ -1,19 +1,23 @@
+#import django modules
 from django.contrib.auth import authenticate, login, get_user_model
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
+#import forms class
 from .forms import ContactForm, LoginForm, RegisterForm
 
+#defining functions for views
+#Home view
 def home_page(request):
 	context = {
 		"title": "Hello World!",
 		"content": "Welcome to home page.",
-		
 	}
 	if request.user.is_authenticated():
 		context["premium_content"] = "Moze!"
 	return render(request, "home_page.html", context)
 
+#About View
 def about_page(request):
 	context = {
 		"title": "About Page!",
@@ -21,6 +25,7 @@ def about_page(request):
 	}
 	return render(request, "home_page.html", context)
 
+#Contact View
 def contact_page(request):
 	contact_form = ContactForm(request.POST or None)
 
@@ -37,7 +42,7 @@ def contact_page(request):
 	# 	print(request.POST.get('content'))
 	return render(request, "contact/view.html", context)
 
-
+#Login View
 def login_page(request):
 	form = LoginForm(request.POST or None)
 	context = {
@@ -61,6 +66,7 @@ def login_page(request):
 
 	return render(request, "auth/login.html", context)
 
+#Register view
 User = get_user_model()
 def register_page(request):
 	form = RegisterForm(request.POST or None)

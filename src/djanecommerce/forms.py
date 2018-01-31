@@ -1,9 +1,11 @@
+#imported forms module
 from django import forms
 from django.contrib.auth import get_user_model
 
+#defining user model from django user model module
 User = get_user_model()
 
-
+#form definition and validation for contact form
 class ContactForm(forms.Form):
 	fullname = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Your name"}))
 	email = forms.EmailField(widget=forms.EmailInput(attrs={"class": "form-control", "placeholder": "Your email"}))
@@ -15,11 +17,12 @@ class ContactForm(forms.Form):
 			raise forms.ValidationError("Only google user can do this.")
 		return email
 
-
+#form definition and validation for login form
 class LoginForm(forms.Form):
 	username = forms.CharField()
 	password = forms.CharField(widget=forms.PasswordInput)
 
+#form definition and validation for register form
 class RegisterForm(forms.Form):
 	username = forms.CharField()
 	email = forms.EmailField()
@@ -46,4 +49,4 @@ class RegisterForm(forms.Form):
 		password2 = self.cleaned_data.get('password2')
 		if password2 != password:
 			raise forms.ValidationError("Use the same password")
-		return data
+		return data		
