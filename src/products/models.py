@@ -15,8 +15,6 @@ def get_filename_ext(filepath):
 	return name, ext
 
 def upload_image_path(instance, filename):
-	# print(instance)
-	# print(filename)
 	new_filename = random.randint(1,12312312)
 	name, ext = get_filename_ext(filename)
 	final_filename = '{new_filename}{ext}'.format(new_filename=new_filename, ext=ext)
@@ -63,6 +61,9 @@ class Product(models.Model):
 	##class methods
 	def __str__(self):
 		return self.title
+
+	def get_absolute_url(self):
+		return "/products/{slug}/".format(slug=self.slug)
 
 def product_pre_save_receiver(sender, instance, *args, **kwargs):
 	if not instance.slug:
