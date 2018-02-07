@@ -10,14 +10,14 @@ import os
 from .utils import unique_slug_generator
 
 #image uploading functions for renaming
-def get_filename_ext(filepath):
-	base_name = os.path.basename(filepath)
+def get_filename_ext(putanjafajla):
+	base_name = os.path.basename(putanjafajla)
 	name, ext = os.path.splitext(base_name)
 	return name, ext
 
-def upload_image_path(instance, filename):
+def upload_image_path(instance, ime_fajla):
 	new_filename = random.randint(1,12312312)
-	name, ext = get_filename_ext(filename)
+	name, ext = get_filename_ext(ime_fajla)
 	final_filename = '{new_filename}{ext}'.format(new_filename=new_filename, ext=ext)
 	return "products/{new_filename}/{final_filename}".format(new_filename=new_filename, final_filename=final_filename) 
 
@@ -65,7 +65,7 @@ class Product(models.Model):
 
 	def get_absolute_url(self):
 		# return "/products/{slug}/".format(slug=self.slug)
-		return reverse("detail", kwargs={"slug": self.slug})
+		return reverse("products:detail", kwargs={"slug": self.slug})
 
 def product_pre_save_receiver(sender, instance, *args, **kwargs):
 	if not instance.slug:
