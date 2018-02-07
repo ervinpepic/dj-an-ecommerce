@@ -1,7 +1,11 @@
-{{ object.title }}<br>
-{{ object.description }}<br>
-{% if object.image %}
-	<img class="img-fluid" src='{{ object.image.url }}' alt="MacBookPro-2014"><br>
-{% endif %}
+{% extends "base.html" %}
 
+{% block content %}
 
+	{{ object.title }}<br>
+	{{ object.description }}<br>
+	{% if object.image %}
+		<img class="img-fluid" src='{{ object.image.url }}' alt="MacBookPro-2014"><br>
+	{% endif %}
+
+{% endblock content %}
