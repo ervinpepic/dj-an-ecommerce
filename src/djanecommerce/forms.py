@@ -2,7 +2,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 
-#defining user model from django user model module
+#Creating get_user_model function instance()
 User = get_user_model()
 
 #form definition and validation for contact form

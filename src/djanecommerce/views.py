@@ -7,11 +7,12 @@ from django.shortcuts import render, redirect
 from .forms import ContactForm, LoginForm, RegisterForm
 
 #defining functions for views
+#Function based views
 #Home view
 def home_page(request):
 	context = {
-		"title": "Hello World!",
-		"content": "Welcome to home page.",
+		# "title": "Hello World!",
+		# "content": "Welcome to home page.",
 	}
 	if request.user.is_authenticated():
 		context["premium_content"] = "Moze!"

@@ -4,29 +4,19 @@
 
 <div class='text-center'>
 	<h1>{{ title }}</h1>
-	<h1>Hello, world! Working</h1>
 </div>
 <div class="container">
 	<div class="row">
 		<div class="col">
 			<p class="lead">{{ content }}</p>
-
 			<div class="col-sm-6 col-12">
-
 				<form method="POST"> {% csrf_token %}
 					{{ form }}
-					<button class="btn-success" type="submit">Send</button>
+					<br>
+					<button class="btn btn-success" type="submit">Send</button>
 				</form>
-
-					<!-- <form method="POST"> {% csrf_token %}
-						<input class="form-control" type="text" name="fullname" placeholder="Name">
-						<input class="form-control" type="email" name="email" placeholder="Email">
-						<textarea class="form-control" name="content" placeholder="Your Content"></textarea>
-						<button class="btn-success" type="submit">Send</button>
-					</form> -->
-				</div>
-
 			</div>
 		</div>
 	</div>
-	{% endblock content %}
+</div>
+{% endblock content %}
