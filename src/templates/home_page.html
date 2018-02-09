@@ -3,7 +3,7 @@
 <title>Home Page Template</title>
 
 {% block base_head %}
-	<link rel="stylesheet" type="text/css" href='{% static "css/main.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/main.css" %}'>
 {% endblock base_head %}
 
 {% block content %}
@@ -12,22 +12,21 @@
 	<h1>{{ title }}</h1>
 	<h1>Home Page Template</h1>
 </div>
-<div class="container">
-	<div class="row">
-		<div class="col">
-			<img class="img-fluid" src="{% static 'img/teslacar.jpg' %}" alt="Tesla car">
-			<p class="lead">{{ content }}</p>
-		</div>
+<div class="row">
+	<div class="col">
+		<img class="img-fluid" src="{% static 'img/teslacar.jpg' %}" alt="Tesla car">
+		<p class="lead">{{ content }}</p>
 	</div>
-	{% if request.user.is_authenticated %}
-	<div class="row">
-		<div class="col">
-			<h1>Premimum Content</h1>
-			{{ premium_content }}
-		</div>
-	</div>
-	{% endif %}
 </div>
+{% if request.user.is_authenticated %}
+<div class="row">
+	<div class="col">
+		<h1>Premimum Content</h1>
+		{{ premium_content }}
+	</div>
+</div>
+{% endif %}
+
 
 {% endblock content %}
 
