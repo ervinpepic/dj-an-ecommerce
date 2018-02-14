@@ -5,11 +5,6 @@ from django.conf.urls import url
 from .views import (
     ProductListView,
     ProductDetailSlugView,
-    #product_list_view, 
-    #ProductDetailView, 
-    #product_detail_view,
-    #ProductFeaturedListView,
-    #ProductFeaturedDetailView,
     )
 
 urlpatterns = [

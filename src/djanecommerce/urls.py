@@ -13,15 +13,18 @@ from .views import (
     login_page, 
     register_page
     )
+from carts.views import cart_home
 
 urlpatterns = [
     url(r'^$', home_page, name='home'),
     url(r'^about/$', about_page, name='about'),
     url(r'^contact/$', contact_page, name='contact'),
     url(r'^login/$', login_page, name='login'),
+    url(r'^cart/$', cart_home, name='cart'),
     url(r'^register/$', register_page, name='register'),
     url(r'^bootstrap/$', TemplateView.as_view(template_name='bootstrap/example.html')),
     url(r'^products/', include("products.urls", namespace='products')),
+    url(r'^search/', include("search.urls", namespace='search')),
     url(r'^admin/', admin.site.urls),
 ]
 
